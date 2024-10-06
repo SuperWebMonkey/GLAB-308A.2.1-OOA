@@ -188,4 +188,8 @@ console.log(sephiroth);
 
 aerith.duel(sephiroth);
 
-console.log(`Yay, Aerith survives. Wait, Snake, this is a paradox!`);
+if (aerith.health > sephiroth.health) {
+  console.log(`Yay, Aerith survives. Wait, Snake, this is a paradox!`);
+} else {
+  console.log("Aerith is stabbed.");
+}
