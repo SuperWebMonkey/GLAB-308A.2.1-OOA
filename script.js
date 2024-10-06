@@ -57,7 +57,7 @@ robin.companion.roll();
 
 // Part Three
 class Adventurer extends Character {
-  static roles = ["Fighter", "Healer", "Wizard", "1st Class SOLDIER"];
+  static roles = ["Fighter", "Healer", "Wizard", "SOLDIER 1st Class"];
 
   constructor(name, role, ability, rangedAtker, level, experience) {
     super(name);
@@ -177,7 +177,7 @@ aerith.level = 45;
 aerith.experience = 5000;
 console.log(aerith);
 
-const SOLDIER_1ST_CLASS = new AdventurerFactory("1st Class SOLDIER");
+const SOLDIER_1ST_CLASS = new AdventurerFactory("SOLDIER 1st Class");
 const sephiroth_temp = SOLDIER_1ST_CLASS.generate("Sephiroth");
 const sephiroth = SOLDIER_1ST_CLASS.findByName("Sephiroth");
 sephiroth.ability = "octoslash";
@@ -188,4 +188,4 @@ console.log(sephiroth);
 
 aerith.duel(sephiroth);
 
-console.log(`Yay, Aerith survives. Snake, this is a paradox!`);
+console.log(`Yay, Aerith survives. Wait, Snake, this is a paradox!`);
