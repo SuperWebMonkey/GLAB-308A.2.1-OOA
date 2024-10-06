@@ -57,7 +57,7 @@ robin.companion.roll();
 
 // Part Three
 class Adventurer extends Character {
-  static roles = ["Fighter", "Healer", "Wizard"];
+  static roles = ["Fighter", "Healer", "Wizard", "1st Class SOLDIER"];
 
   constructor(name, role, ability, rangedAtker, level, experience) {
     super(name);
@@ -113,7 +113,7 @@ class Adventurer extends Character {
       }
 
       if (this.health === 50) {
-        console.log(`Winner is ${adventurer}`);
+        console.log(`Winner is ${adventurer.name}`);
       } else if (adventurer.health === 50) {
         console.log(`Winner is ${this.name}`);
       }
@@ -151,22 +151,41 @@ const frank = new Companion("Frank", "Flea", ["small hat", "sunglasses"]);
 // console.log(frank);
 
 // Part Four
-// class AdventurerFactory {
-//     constructor (role) {
-//       this.role = role;
-//       this.adventurers = [];
-//     }
-//     generate (name) {
-//       const newAdventurer = new Adventurer(name, this.role);
-//       this.adventurers.push(newAdventurer);
-//     }
-//     findByIndex (index) {
-//       return this.adventurers[index];
-//     }
-//     findByName (name) {
-//       return this.adventurers.find((a) => a.name === name);
-//     }
-//   }
+class AdventurerFactory {
+  constructor(role) {
+    this.role = role;
+    this.adventurers = [];
+  }
+  generate(name) {
+    const newAdventurer = new Adventurer(name, this.role);
+    this.adventurers.push(newAdventurer);
+  }
+  findByIndex(index) {
+    return this.adventurers[index];
+  }
+  findByName(name) {
+    return this.adventurers.find((a) => a.name === name);
+  }
+}
 
-//   const healers = new AdventurerFactory("Healer");
-//   const robin = healers.generate("Robin");
+const healers = new AdventurerFactory("Healer");
+const aerith_temp = healers.generate("Aerith Gainsborough");
+const aerith = healers.findByName("Aerith Gainsborough");
+aerith.ability = "healing wind";
+aerith.rangedAtker = true;
+aerith.level = 45;
+aerith.experience = 5000;
+console.log(aerith);
+
+const SOLDIER_1ST_CLASS = new AdventurerFactory("1st Class SOLDIER");
+const sephiroth_temp = SOLDIER_1ST_CLASS.generate("Sephiroth");
+const sephiroth = SOLDIER_1ST_CLASS.findByName("Sephiroth");
+sephiroth.ability = "octoslash";
+sephiroth.rangedAtker = false;
+sephiroth.level = 100;
+sephiroth.experience = 100000;
+console.log(sephiroth);
+
+aerith.duel(sephiroth);
+
+console.log(`Yay, Aerith survives. Snake, this is a paradox!`);
