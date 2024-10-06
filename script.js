@@ -191,5 +191,5 @@ aerith.duel(sephiroth);
 if (aerith.health > sephiroth.health) {
   console.log(`Yay, Aerith survives. Wait, Snake, this is a paradox!`);
 } else {
-  console.log("Aerith is stabbed.");
+  console.log("Aerith is stabbed. THE FUTURE REFUSED TO CHANGE.");
 }
